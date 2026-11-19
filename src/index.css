@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@theme {
+  --color-khaki: #2d3b2d;
+  --color-dark-green: #1a2419;
+  --color-army-red: #cc0000;
+  --color-gold: #c9a834;
+  --color-paper: #f4e8c1;
+  --color-paper-dark: #e8d5a3;
+  --color-ink: #1a1a1a;
+  --color-stamp-red: #8b0000;
+  --font-condensed: 'Roboto Condensed', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-slab: 'Roboto Slab', serif;
+}
+
+/* Red star */
+.red-star {
+  width: 40px;
+  height: 40px;
+  background-color: #cc0000;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
+.red-star-sm {
+  width: 24px;
+  height: 24px;
+  background-color: #cc0000;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
+.red-star-lg {
+  width: 60px;
+  height: 60px;
+  background-color: #cc0000;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
+/* St. George ribbon */
+.george-ribbon {
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    #000000 0px,
+    #000000 8px,
+    #ff8c00 8px,
+    #ff8c00 16px
+  );
+}
+
+/* Secret stamp */
+.stamp-secret {
+  border: 4px solid #8b0000;
+  color: #8b0000;
+  transform: rotate(-12deg);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  opacity: 0.7;
+  padding: 8px 16px;
+  position: relative;
+}
+
+.stamp-secret::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2px solid #8b0000;
+  opacity: 0.4;
+}
+
+/* Timeline */
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #cc0000, #c9a834);
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Scroll navigation */
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(204, 0, 0, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Hero background */
+.hero-bg {
+  background: linear-gradient(
+    135deg,
+    #1a2419 0%,
+    #2d3b2d 30%,
+    #1a2419 60%,
+    #0d120d 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(204, 0, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(201, 168, 52, 0.05) 0%, transparent 40%);
+}
+
+/* Dossier card */
+.dossier-card {
+  background-color: #f4e8c1;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  box-shadow: 
+    0 4px 6px rgba(0,0,0,0.3),
+    inset 0 0 60px rgba(0,0,0,0.05);
+  border: 1px solid #d4c494;
+}
+
+/* Memory wall cards */
+.memory-card {
+  background: linear-gradient(135deg, #f4e8c1 0%, #e8d5a3 100%);
+  border-left: 3px solid #cc0000;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto Slab', serif;
+  background-color: #1a2419;
+  color: #f4e8c1;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Увеличиваем кнопки для touch */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Улучшаем touch targets */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Фикс для iOS safe area */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Убираем задержку клика на мобильных */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Плавная прокрутка для навигации */
+.nav-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
